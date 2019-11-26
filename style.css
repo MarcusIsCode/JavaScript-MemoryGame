@@ -1,0 +1,27 @@
+
+body{
+    margin:0;
+    padding:0;
+    min-width:98vw;
+    min-height:93vh;
+}
+.container{
+    width: 75vh;
+    height:75vw;
+    border:1px solid black;
+    margin: 50px auto;
+    background:none;
+    padding:0;
+}
+ .level1{
+    float:left;
+    width:24.6661%;
+     height:15.2%;
+    background:tan;
+    margin: 0;
+    padding: 0;
+    border:1px solid red;
+    text-align: center;
+    padding-top:10%;
+    font-size: 40px;
+ }
