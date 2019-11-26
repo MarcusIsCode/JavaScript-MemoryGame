@@ -1,6 +1,7 @@
 
 const container = document.querySelector('.container')
 let cardsArray =[];
+let compareArray = [];// för att gemföra 2 värden
 let count = 0;
 let countMoves = 0;
 for (let i = 0; i < 16; i++) {
