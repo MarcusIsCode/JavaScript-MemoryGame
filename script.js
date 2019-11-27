@@ -1,5 +1,5 @@
-
-const container = document.querySelector('.container')
+const moves = document.querySelector('.moves');
+const container = document.querySelector('.container');
 let cardsArray =[];
 let compareArray = [];// för att gemföra 2 värden
 let wrongCardArray =[];
@@ -15,12 +15,14 @@ for (let i = 0; i < 16; i++) {
     
     
 }
+moves.textContent = countMoves;
 
-
-
-    for (let index = 0; index < cardsArray.length; index++) {
-         cardsArray[index].addEventListener('click', (event) => {
-           countMoves++;
+for (let index = 0; index < cardsArray.length; index++) {
+    
+    cardsArray[index].addEventListener('click', (event) => {
+        countMoves++;
+        moves.textContent = countMoves;
+          
           // console.log(countMoves);
             const x = event.target.innerHTML;
             compareArray.push(x);
@@ -50,10 +52,6 @@ for (let i = 0; i < 16; i++) {
                     count++;
                     console.log(count)
                 }
-
-            
-           
-           
         
         }) 
     
@@ -66,6 +64,3 @@ cardsArray.forEach(card => {
     
     container.appendChild(card);
 });
-/* const cards = (x) =>{
-    return x;
-} */
