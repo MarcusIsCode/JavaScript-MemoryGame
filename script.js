@@ -1,3 +1,5 @@
+const bgColors = ['#3c8ac0', '#821afa', '#821afa', '#77eb85', '#2e9966']
+
 const moves = document.querySelector('.moves');
 const container = document.querySelector('.container');
 let cardsArray =[];
@@ -5,6 +7,24 @@ let compareArray = [];// för att gemföra 2 värden
 let wrongCardArray =[];
 let count = 1;
 let countMoves = 0;
+
+
+function cardsObjs(id,background){
+    this.id = id;
+    this.background = background;
+}
+
+for (let i = 0; i < 5; i++) {
+    
+    const theCard = new cardsObjs(i,bgColors[i]);
+
+    console.log(theCard.id)
+}
+
+
+
+
+
 for (let i = 0; i < 16; i++) {
     const card = document.createElement("div");
     
