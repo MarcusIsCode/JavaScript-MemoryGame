@@ -12,11 +12,11 @@ body{
     margin: 50px auto;
     background:none;
     padding:0;
+    display:grid;
+    grid-template-columns: auto auto auto auto;
 }
+
  .level1{
-    float:left;
-    width:24.6661%;
-     height:15.2%;
     background:tan;
     margin: 0;
     padding: 0;
@@ -25,3 +25,4 @@ body{
     padding-top:10%;
     font-size: 40px;
  }
+ 

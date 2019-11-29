@@ -2,85 +2,68 @@ const bgColors = ['#3c8ac0', '#821afa', '#821afa', '#77eb85', '#2e9966']
 
 const moves = document.querySelector('.moves');
 const container = document.querySelector('.container');
-let cardsArray =[];
 let compareArray = [];// för att gemföra 2 värden
-let wrongCardArray =[];
-let count = 1;
 let countMoves = 0;
+let correct = 0;
 
-
-function cardsObjs(id,background){
+function cardsObjs(id,div,background){
     this.id = id;
+    this.div = document.createElement("div")
+    this.div.classList.add("level1");
     this.background = background;
 }
 
-for (let i = 0; i < 5; i++) {
-    
-    const theCard = new cardsObjs(i,bgColors[i]);
+let cardsArray =[];
+let cardsArray2 = []
+let allCards = [];
 
-    console.log(theCard.id)
+for (let i = 0; i < 8; i++) {
+    const theCard = new cardsObjs(i,'',bgColors[i]);
+    const theCard2 = new cardsObjs(i,'',bgColors[i]);
+    cardsArray[i] = theCard
+    cardsArray2[i] = theCard2;
+    allCards = cardsArray.concat(cardsArray2);
+    //sconsole.log (cardsArray)
 }
+console.log(allCards)
+//console.log(cardsArray)
 
-
-
-
-
-for (let i = 0; i < 16; i++) {
-    const card = document.createElement("div");
+for (let g = 0; g < 16; g++) {
+    let card = allCards[g]
     
-    card.classList.add("level1");
-    card.style.color ="tan"
-    card.textContent = (i+i)%16;
-    cardsArray[i] = card;
-    
-    
-}
-moves.textContent = countMoves;
-
-for (let index = 0; index < cardsArray.length; index++) {
-    
-    cardsArray[index].addEventListener('click', (event) => {
-        countMoves++;
-        moves.textContent = countMoves;
-          
-          // console.log(countMoves);
-            const x = event.target.innerHTML;
-            compareArray.push(x);
-            
-            const y = event.target;
-            y.style.color ="black";
-            wrongCardArray.push(y);
-          
-             let card1 =compareArray[0];
-             let card2 = compareArray[1];
-            
-          
-            
-                if (card1 === card2) {
-                    compareArray = [];
-                    wrongCardArray = [];
-                    count = 1;
-                } else if(card1 !== card2 && count ===2)  {
-                    wrongCardArray.forEach(wrong => {
-                        wrong.style.color='tan';//sätta någon delay
-                    });
-                    compareArray = [];
-                    count =1;
-                  
-                    
-                }else{
-                    count++;
-                    console.log(count)
-                }
+    container.appendChild(card.div);
+   
+    allCards[g].div.addEventListener('click',(event)=>{
         
-        }) 
-    
-    
-    }
+        countMoves+=1
 
+        let click = event.target;
+        if(click === card.div){
+            click.remove
+            compareArray.push(card.id);
+            console.log(compareArray +' id');
+            if (compareArray[0] === compareArray[1]){
+                console.log('yey')
+                console.log(cardsArray); 
+                correct+=1;
+                console.log(correct);
+                
+                if(cardsArray.length >2){
+                    compareArray =[];
+                }
+                } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){
+                    console.log('ney');
+                    compareArray=[];
+                }else if ( correct === cardsArray.length){
+                    console.log('you won')
+                }
+            }
+            
+        
+    }) 
     
-    
-cardsArray.forEach(card => {
-    
-    container.appendChild(card);
-});
+}
+//
+
+
+
