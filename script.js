@@ -18,43 +18,52 @@ let cardsArray2 = []
 let allCards = [];
 
 for (let i = 0; i < 8; i++) {
+   
+    
     const theCard = new cardsObjs(i,'',bgColors[i]);
     const theCard2 = new cardsObjs(i,'',bgColors[i]);
     cardsArray[i] = theCard
     cardsArray2[i] = theCard2;
     allCards = cardsArray.concat(cardsArray2);
+    
     //sconsole.log (cardsArray)
 }
 console.log(allCards)
 //console.log(cardsArray)
 
 for (let g = 0; g < 16; g++) {
+    allCards[g].div.textContent = allCards[g].id;
     let card = allCards[g]
+        
     
     container.appendChild(card.div);
-   
+    
     allCards[g].div.addEventListener('click',(event)=>{
         
         countMoves+=1
-
+        displayText(moves,countMoves);  
+        
         let click = event.target;
+        
         if(click === card.div){
-            click.remove
             compareArray.push(card.id);
             console.log(compareArray +' id');
             if (compareArray[0] === compareArray[1]){
+                click.classList.add('dispNone')
+                
+                
                 console.log('yey')
-                console.log(cardsArray); 
+               
                 correct+=1;
-                console.log(correct);
                 
                 if(cardsArray.length >2){
                     compareArray =[];
                 }
-                } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){
-                    console.log('ney');
-                    compareArray=[];
-                }else if ( correct === cardsArray.length){
+            } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){
+                
+                compareArray=[];
+
+            }else if ( correct === cardsArray.length){
                     console.log('you won')
                 }
             }
@@ -63,7 +72,6 @@ for (let g = 0; g < 16; g++) {
     }) 
     
 }
-//
 
 
 
