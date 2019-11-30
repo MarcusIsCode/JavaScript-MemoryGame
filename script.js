@@ -25,10 +25,12 @@ for (let i = 0; i < 8; i++) {
     const theCard2 = new cardsObjs(i,'',bgColors[i]);
     cardsArray[i] = theCard;
     cardsArray2[i] = theCard2;
-    allCards = cardsArray.concat(cardsArray2);   
-   
+    allCards = cardsArray.concat(cardsArray2); 
+    //shuffles the array (function.js)  
+    shuffleArray(allCards);
 }
-console.log(allCards)
+
+console.log(allCards);
 
 
 
@@ -37,14 +39,16 @@ for (let g = 0; g < 16; g++) {
     let card = allCards[g]
     
     // adding the divs to the container inside index.html
-    container.appendChild(card.div);
+   // container.appendChild(card.div);
+    
     
     //adding clickevent
-    allCards[g].div.addEventListener('click',(event)=>{
+    card.div.addEventListener('click',(event)=>{
+        console.log(event.target)
+        
+        showCard(event,1)
         //for the card;
         
-        console.log(event.target);
-        event.target.appendChild(showCard());
         countMoves+=1;
         displayText(moves,countMoves);  
         compareArray.push(card.id);
@@ -52,12 +56,13 @@ for (let g = 0; g < 16; g++) {
            
         
         console.log(compareArray)
-  
+                //if correct
             if (compareArray[0] === compareArray[1] ){
                 console.log(compareArray.length)
-               console.log('yey')
+                console.log('yey')
                 correct+=1;
                 compareArray =[];
+                
                 //wining
                 if(correct === cardsArray.length){
                     console.log('you won')
@@ -65,16 +70,16 @@ for (let g = 0; g < 16; g++) {
                 
                 console.log(correct);
                 
-
+                //if wrongs
             } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){
                 
-                compareArray=[];
+                compareArray=[]
 
+                
             }
-           
-            
+  
         
-    }) 
+    },false) 
     
 }
 
