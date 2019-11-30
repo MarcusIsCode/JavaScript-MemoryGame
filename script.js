@@ -40,25 +40,27 @@ for (let g = 0; g < 16; g++) {
     
     allCards[g].div.addEventListener('click',(event)=>{
         
+        let click = event.target;
         countMoves+=1
         displayText(moves,countMoves);  
         
-        let click = event.target;
         
         if(click === card.div){
             compareArray.push(card.id);
-            console.log(compareArray +' id');
+            console.log(compareArray)
+  
             if (compareArray[0] === compareArray[1]){
-                click.classList.add('dispNone')
                 
                 
-                console.log('yey')
+                click.classList.add('dispNone');
+                
                
                 correct+=1;
                 
                 if(cardsArray.length >2){
                     compareArray =[];
                 }
+
             } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){
                 
                 compareArray=[];
