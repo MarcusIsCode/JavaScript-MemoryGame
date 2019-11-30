@@ -8,3 +8,8 @@ const goThrougArray =(array,b)=>{
         element;
     });
 }
+
+const showElemnt =()=>{
+    const showCard = document.createElement('div');
+    showCard.classList.add('hide')
+}

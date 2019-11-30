@@ -17,63 +17,65 @@ let cardsArray =[];
 let cardsArray2 = []
 let allCards = [];
 
+
+//creaing all the cards  with objects and putting them into a array 'allcards'
 for (let i = 0; i < 8; i++) {
    
-    
     const theCard = new cardsObjs(i,'',bgColors[i]);
     const theCard2 = new cardsObjs(i,'',bgColors[i]);
-    cardsArray[i] = theCard
+    cardsArray[i] = theCard;
     cardsArray2[i] = theCard2;
-    allCards = cardsArray.concat(cardsArray2);
-    
-    //sconsole.log (cardsArray)
+    allCards = cardsArray.concat(cardsArray2);   
+   
 }
 console.log(allCards)
-//console.log(cardsArray)
 
+
+
+//adding click event to every div
 for (let g = 0; g < 16; g++) {
-    allCards[g].div.textContent = allCards[g].id;
     let card = allCards[g]
-        
     
+    // adding the divs to the container inside index.html
     container.appendChild(card.div);
     
+    //adding clickevent
     allCards[g].div.addEventListener('click',(event)=>{
+        //for the card;
         
-        let click = event.target;
-        countMoves+=1
+        console.log(event.target);
+        event.target.appendChild(showCard());
+        countMoves+=1;
         displayText(moves,countMoves);  
+        compareArray.push(card.id);
         
+           
         
-        if(click === card.div){
-            compareArray.push(card.id);
-            console.log(compareArray)
+        console.log(compareArray)
   
-            if (compareArray[0] === compareArray[1]){
-                
-                
-                click.classList.add('dispNone');
-                
-               
+            if (compareArray[0] === compareArray[1] ){
+                console.log(compareArray.length)
+               console.log('yey')
                 correct+=1;
-                
-                if(cardsArray.length >2){
-                    compareArray =[];
+                compareArray =[];
+                //wining
+                if(correct === cardsArray.length){
+                    console.log('you won')
                 }
+                
+                console.log(correct);
+                
 
             } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){
                 
                 compareArray=[];
 
-            }else if ( correct === cardsArray.length){
-                    console.log('you won')
-                }
             }
+           
             
         
     }) 
     
 }
-
 
 
