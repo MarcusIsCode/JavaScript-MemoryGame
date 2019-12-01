@@ -10,7 +10,6 @@ function cardsObjs(id,div){
     this.id = id;
     this.div = document.createElement("div")
     this.div.classList.add("level1");
-
 }
 // arrays to compare with
 let compareArray = [];

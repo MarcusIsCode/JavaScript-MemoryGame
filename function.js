@@ -18,8 +18,6 @@ const shuffleArray=(array)=> {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-    
-
     return array;
 }
 
@@ -28,9 +26,7 @@ const hideCard =(array) =>{
     for (let i = 0; i < array.length; i++){
         array[i].classList.remove('show')
         array[i].innerHTML ="";
-              
     }        
-
 }
 
 const showCard =(event,id)=>{
@@ -41,7 +37,7 @@ const showCard =(event,id)=>{
 const wining =() =>{
     const win  = document.createElement("h2");
     document.body.appendChild(win);
-    win.innerHTML = "You won";
+   document.querySelector('.message').innerHTML = "You won";
 }
 
 //add a placeholder for clickevent to hide it behind when clicked

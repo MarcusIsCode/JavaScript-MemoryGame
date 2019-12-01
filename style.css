@@ -1,12 +1,18 @@
-
+:root{
+    --sapphire:#0F55B2;
+    --diamond: #C8ECFE;
+    --romanSilver: #809292;
+    --stelTeal:#5F8892; 
+    --lightGray: #D6D1CE;
+}
 body{
     margin:0;
     padding:0;
     min-width:98vw;
     min-height:93vh;
 }
+
 .container{
-    border:1px solid black;
     background:none;
     padding:0;
     position: absolute;
@@ -15,30 +21,38 @@ body{
     width:70vw;
     display:grid;
     grid-template-columns: auto auto auto auto;
+
 }
 
 
  .level1{
      position: relative;
-    background:tan;
+    background:var(--sapphire);
     margin: 0;
     padding: 0;
-    border:1px solid red;
+    border:1.5px solid #D6D1CE;
     text-align: center;
     padding-top:10%;
     font-size: 40px;
     min-width: 100px;
     min-height: 100px;
     font-size: 14px;
+    border-radius: 5px;
  }
  .show{
-    background:tomato;
+    background:var(--diamond);
     z-index:-1;
  }
- .dispNone{
+
+ .popup{
+     position: fixed;
+     width:550px;
+     height:250px;
+     background:var(--romanSilver);
+     left: 50%;
+     transform: translateX(-50%);
+     top:100px;
+     z-index:2;
+     border-radius: 10px;
      display: none;
  }
- .color{
-    background:tomato;
- }
- 
