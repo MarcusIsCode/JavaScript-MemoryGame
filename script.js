@@ -24,7 +24,7 @@ let wrongCards = [];
 
 
 //creaing all the cards  with objects and putting them into a array 'allcards'
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 1; i++) {
    
     const theCard = new cardsObjs(i,'');
     const theCard2 = new cardsObjs(i,'');
@@ -50,7 +50,7 @@ for (let g = 0; g < allCards.length; g++) {
     card.div.addEventListener('click',(event)=>{
         
         showCard(event,card.id)
-
+        console.log(card.id);
         //for the card;
         countMoves+=1;
         //show all moves
@@ -86,8 +86,7 @@ for (let g = 0; g < allCards.length; g++) {
                     compareArray=[];  
                     hideCard(wrongCards,'show')
                     wrongCards = [];
-                    console.log ('ney')//**  remove later
-                        
+                    console.log ('ney')//**  remove later  
                         //add a new card for the next klick
                         showCard(event, card.id)
                         compareArray.push(card.id);

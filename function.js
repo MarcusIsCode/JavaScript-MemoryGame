@@ -35,9 +35,9 @@ const showCard =(event,id)=>{
 }
 
 const wining =() =>{
-    const win  = document.createElement("h2");
-    document.body.appendChild(win);
-   document.querySelector('.message').innerHTML = "You won";
+    const popUpp = document.querySelector('.popup')
+    popUpp.classList.add('showPopup')
+    console.log(popUpp)
 }
 
 //add a placeholder for clickevent to hide it behind when clicked
