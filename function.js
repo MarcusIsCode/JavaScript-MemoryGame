@@ -28,13 +28,15 @@ const shuffleArray=(array)=> {
     return array;
 }
 
+const hideCard =(array,className) =>{
+    
+    array.forEach(hideCard => {
+        hideCard.className.remove(className);
+    });
+}
+
 const showCard =(event,id)=>{
    
-   return event.target.innerHTML = `<div class='hide'><h1>${id}</h1></div>`
+   return event.target.innerHTML = `<div class='show'><h4>${id}</h4></div>`
 }
 //add a placeholder for clickevent to hide it behind when clicked
-const cardPlaceHolder =()=>{
-    const divHolder = document.createElement('div');
-    divHolder.classList.add('Cardholder');
-    container.appendChild(divHolder);
-}

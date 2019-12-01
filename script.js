@@ -26,34 +26,37 @@ for (let i = 0; i < 8; i++) {
     cardsArray[i] = theCard;
     cardsArray2[i] = theCard2;
     allCards = cardsArray.concat(cardsArray2); 
+    
     //shuffles the array (function.js)  
     shuffleArray(allCards);
 }
 
-console.log(allCards);
 
 
+//let cardPlaceHolderArray =[];
 
+//console.log(cardPlaceHolder)
 //adding click event to every div
 for (let g = 0; g < 16; g++) {
+        
     let card = allCards[g]
     
+
     // adding the divs to the container inside index.html
-   // container.appendChild(card.div);
-    
+    container.appendChild(card.div);
     
     //adding clickevent
     card.div.addEventListener('click',(event)=>{
         console.log(event.target)
         
-        showCard(event,1)
+        showCard(event,card.id)
+
         //for the card;
-        
         countMoves+=1;
         displayText(moves,countMoves);  
         compareArray.push(card.id);
         
-           
+           event.target.style.zIndex ="-1";
         
         console.log(compareArray)
                 //if correct
@@ -82,5 +85,4 @@ for (let g = 0; g < 16; g++) {
     },false) 
     
 }
-
 
