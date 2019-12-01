@@ -12,17 +12,20 @@ function cardsObjs(id,div){
     this.div.classList.add("level1");
 
 }
-
-let compareArray = [];// för att gemföra 2 värden
+// arrays to compare with
+let compareArray = [];
+//to create the cards used 2 arrays
 let cardsArray =[];
 let cardsArray2 = [];
+//array used to shuffel and easier compare.
 let allCards = [];
+//used to changed style on wrong cards
 let wrongCards = [];
 
 
 
 //creaing all the cards  with objects and putting them into a array 'allcards'
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 2; i++) {
    
     const theCard = new cardsObjs(i,'');
     const theCard2 = new cardsObjs(i,'');
@@ -32,12 +35,12 @@ for (let i = 0; i < 8; i++) {
 
     //shuffles the array (function.js)  
     shuffleArray(allCards);
+    console.log(allCards)
 }
 
 
-
 //adding click event to every div
-for (let g = 0; g < 16; g++) {
+for (let g = 0; g < allCards.length; g++) {
         
     let card = allCards[g]
     
@@ -48,38 +51,30 @@ for (let g = 0; g < 16; g++) {
     card.div.addEventListener('click',(event)=>{
         
         showCard(event,card.id)
-        
-        let onclick = true;
-        
-        if(event.target){
-            onclick = false;
-        }else{
-            onclick = true;
-        }
-        console.log(onclick);
-        
 
         //for the card;
         countMoves+=1;
         //show all moves
         displayText(moves,countMoves);  
-        
+        //push objct id into array
         compareArray.push(card.id);
+        //push div into array
         wrongCards.push(event.target) 
     
+     /** ---- the logic win or no win  **/   
         
-        
-       // console.log(compareArray)
-                //if correct
+        //if won
             if (compareArray[0] === compareArray[1] ){
                 console.log('yey')
-    
+                //if correct you get a point
                 correct+=1;
+                //both arrays gets empty so you can compare 2 new ones
                 compareArray =[];
                 wrongCards =[];  
                 //wining
                 if(correct === cardsArray.length){
                     console.log('you won')
+                    wining();
                 }
                 
                // console.log(correct);
@@ -87,13 +82,19 @@ for (let g = 0; g < 16; g++) {
                 //if wrongs
             } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){
                 
-                if(wrongCards.length >1){
-                    
+                if(wrongCards.length >2){
+                    //hides the card
+                    compareArray=[];  
                     hideCard(wrongCards,'show')
-                    console.log ('ney')
+                    wrongCards = [];
+                    console.log ('ney')//**  remove later
+                        
+                        //add a new card for the next klick
+                        showCard(event, card.id)
+                        compareArray.push(card.id);
+                        wrongCards.push(event.target)
                 } 
-                compareArray=[];
-                console.log(compareArray)
+               
                 
             }
   
