@@ -36,7 +36,7 @@ for (let i = 0; i < 1; i++) {
     shuffleArray(allCards);
     console.log(allCards)
 }
-displayText(moves, countMoves);  
+displayText(moves, 'Moves:'+countMoves);  
 
 //adding click event to every div
 for (let g = 0; g < allCards.length; g++) {
@@ -54,7 +54,7 @@ for (let g = 0; g < allCards.length; g++) {
         //for the card;
         countMoves+=1;
         //show all moves
-        displayText(moves,countMoves);  
+        displayText(moves,'Moves:'+countMoves);  
         //push objct id into array
         compareArray.push(card.id);
         //push div into array
