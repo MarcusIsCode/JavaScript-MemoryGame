@@ -19,11 +19,28 @@
     margin-bottom: 10px;
     border:3px solid white;
     display:flex;
-    flex-direction: column;
     border-radius: 10px;
+    flex-direction: row;
+    justify-content: center;
 }
 .boxStats{
-    width:99%;
+    display: block;
+    border-radius:10px;
+    margin-top:10px;
+    width:88%;
     height:10%;
-    border:1px dotted white;
+    background:var(--lightGray);
+    color:var(--sapphire);
+    padding:0 5px;
+    font-family:var(--RacingSans);
+} 
+.level{
+    width:100%;
+
+    margin:1px;
+}  
+.moves {
+    padding-left: 45%;
+    text-align: right;
+    font-size: 28px;
 }
