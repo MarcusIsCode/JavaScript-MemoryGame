@@ -28,6 +28,7 @@
     border-radius:10px;
     margin-top:10px;
     width:88%;
+    min-width: 226px;
     height:10%;
     background:var(--lightGray);
     color:var(--sapphire);
@@ -36,7 +37,6 @@
 } 
 .level{
     width:100%;
-
     margin:1px;
 }  
 .moves {

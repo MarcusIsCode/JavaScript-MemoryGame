@@ -1,8 +1,24 @@
-
-//setTimeout(a,6300);   
+   
 
 const moves = document.querySelector('.moves');
+const playerName = document.querySelector('.plyName');
+
 const container = document.querySelector('.container');
+
+//name variables for start up
+const startBox = document.querySelector('.start');
+const input = document.querySelector('input');
+const startBtn = document.querySelector('.startBtn');
+
+startBtn.addEventListener('click',()=>{
+
+     const name = input.value;
+     playerName.textContent = name;
+     startBox.classList.add('hideStart');
+
+})
+
+
 let countMoves = 0;
 let correct = 0;
 
@@ -16,8 +32,8 @@ let allCards = [];
 
 function player(name,points,moves){
     this.name = name;
-    this.points = points;
     this.moves = moves;
+    this.correct = correct;
 }
 
 function cardsObjs(id,div){
@@ -27,7 +43,7 @@ function cardsObjs(id,div){
 }
 
 //creaing all the cards  with objects and putting them into a array 'allcards'
-for (let i = 0; i < 1; i++) {
+for (let i = 0; i < 3; i++) {
    
     const theCard = new cardsObjs(i,'');
     const theCard2 = new cardsObjs(i,'');
@@ -38,6 +54,7 @@ for (let i = 0; i < 1; i++) {
     //shuffles the array (function.js)  
     shuffleArray(allCards);
 }
+
 displayText(moves, 'Moves:'+countMoves);  
 
 //adding click event to every div
@@ -84,22 +101,15 @@ for (let g = 0; g < allCards.length; g++) {
             } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){
                 
                 if(wrongCards.length >2){
-                    //hides the card
                     compareArray=[];  
                     hideCard(wrongCards,'show')
                     wrongCards = [];
-                    console.log ('ney')//**  remove later  
-                        //add a new card for the next klick
+                       
                         showCard(event, card.id)
                         compareArray.push(card.id);
                         wrongCards.push(event.target)
-                } 
-               
-                
-            }
-  
-        
-    },false) 
-    
+                }  
+            }       
+    },false)    
 }
 

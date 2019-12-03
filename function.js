@@ -21,10 +21,10 @@ const shuffleArray=(array)=> {
     return array;
 }
 
-const hideCard =(array) =>{
+const hideCard =(array,b) =>{
     
     for (let i = 0; i < array.length; i++){
-        array[i].classList.remove('show')
+        array[i].classList.remove(b)
         array[i].innerHTML ="";
     }        
 }
