@@ -9,6 +9,7 @@
 body{
     margin:0;
     padding:0;
+    background:rgb(63, 62, 62)
     
 }
 .btnBox{
@@ -46,6 +47,9 @@ body{
     display:grid;
     grid-template-columns: auto auto auto auto;
     background:none;
+    border:3px solid white;
+    padding:20px;
+    border-radius:10px;
 }
 
  .level1{
@@ -54,84 +58,22 @@ body{
     margin: 0;
     padding: 0;
     border:1.5px solid #D6D1CE;
-    text-align: center;
-    padding-top:10%;
     font-size: 40px;
     width:125px;
     height:150px;
     font-size: 14px;
     border-radius: 5px;
+    margin-left:3px;
  }
  .show{
     background:var(--diamond);
     z-index:-1;
  }
  
- .popup{
-    font-family: var(--RacingSans);
-    
-     position: fixed;
-     width:400px;
-     height:200px;
-     background:var(--romanSilver);
-     left: -50%;
-     transform: translateX(-50%);
-     top:100px;
-     z-index:2;
-     border-radius: 10px 10px;
- }
- .showPopup{
-     left: 50%;
- }
- .message{
-     width: 95%;
-     height:auto;
-     padding:0px 1px;
-     margin: 2.5% auto;
-     border-radius: 10px;
-     color:white;
-     text-align: center;
-     font-size: 25px;
- }
- .message h2{
-     margin:0px;
-     padding:0px;
-     font-size:30px;
-     font-weight:lighter;
- }
-span{
-    font-size:33px;
-    text-decoration: underline;
-}
 
-.stats{
-    position: relative;
-    top:0px;
-    padding:7px;
-    padding-bottom: 0px;
-    height:99vh;
-    width:20vw;
-    color:white;
-    background:var(--romanSilver)
-}
-.stats h2{
-    margin:0px;
-}
-.statsContainer{
-    position: relative;
-    height: 80%;
-    width:92%;
-    margin:0 auto;
-    margin-bottom: 10px;
-    border:3px solid white;
-    display:flex;
-    flex-direction: column;
-    border-radius: 10px;
-}
-.boxStats{
-    width:99%;
-    height:10%;
-    border:1px dotted white;
-}
+
+
+
+
 
 

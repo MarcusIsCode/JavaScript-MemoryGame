@@ -6,22 +6,25 @@ const container = document.querySelector('.container');
 let countMoves = 0;
 let correct = 0;
 
+let compareArray = [];
+let wrongCards = [];
+
+let cardsArray =[];
+let cardsArray2 = [];
+let allCards = [];
+
+
+function player(name,points,moves){
+    this.name = name;
+    this.points = points;
+    this.moves = moves;
+}
+
 function cardsObjs(id,div){
     this.id = id;
     this.div = document.createElement("div")
     this.div.classList.add("level1");
 }
-// arrays to compare with
-let compareArray = [];
-//to create the cards used 2 arrays
-let cardsArray =[];
-let cardsArray2 = [];
-//array used to shuffel and easier compare.
-let allCards = [];
-//used to changed style on wrong cards
-let wrongCards = [];
-
-
 
 //creaing all the cards  with objects and putting them into a array 'allcards'
 for (let i = 0; i < 1; i++) {
@@ -34,7 +37,6 @@ for (let i = 0; i < 1; i++) {
 
     //shuffles the array (function.js)  
     shuffleArray(allCards);
-    console.log(allCards)
 }
 displayText(moves, 'Moves:'+countMoves);  
 

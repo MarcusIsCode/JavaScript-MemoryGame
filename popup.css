@@ -1,0 +1,36 @@
+  .popup{
+    font-family: var(--RacingSans);
+    
+     position: fixed;
+     width:400px;
+     height:200px;
+     background:var(--romanSilver);
+     left: -50%;
+     transform: translateX(-50%);
+     top:100px;
+     z-index:2;
+     border-radius: 10px 10px;
+ }
+ .showPopup{
+     left: 50%;
+ }
+ .message{
+     width: 95%;
+     height:auto;
+     padding:0px 1px;
+     margin: 2.5% auto;
+     border-radius: 10px;
+     color:white;
+     text-align: center;
+     font-size: 25px;
+ }
+ .message h2{
+     margin:0px;
+     padding:0px;
+     font-size:30px;
+     font-weight:lighter;
+ }
+ span{
+    font-size:33px;
+    text-decoration: underline;
+}
