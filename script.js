@@ -2,21 +2,10 @@
 
 const moves = document.querySelector('.moves');
 const playerName = document.querySelector('.plyName');
-
 const container = document.querySelector('.container');
 
-//name variables for start up
-const startBox = document.querySelector('.start');
-const input = document.querySelector('input');
-const startBtn = document.querySelector('.startBtn');
+//name variables for start up window
 
-startBtn.addEventListener('click',()=>{
-
-     const name = input.value;
-     playerName.textContent = name;
-     startBox.classList.add('hideStart');
-
-})
 
 
 let countMoves = 0;
@@ -30,11 +19,7 @@ let cardsArray2 = [];
 let allCards = [];
 
 
-function player(name,points,moves){
-    this.name = name;
-    this.moves = moves;
-    this.correct = correct;
-}
+
 
 function cardsObjs(id,div){
     this.id = id;
@@ -55,7 +40,7 @@ for (let i = 0; i < 3; i++) {
     shuffleArray(allCards);
 }
 
-displayText(moves, 'Moves:'+countMoves);  
+  
 
 //adding click event to every div
 for (let g = 0; g < allCards.length; g++) {
@@ -64,16 +49,11 @@ for (let g = 0; g < allCards.length; g++) {
     
     // adding the divs to the container inside index.html
     container.appendChild(card.div);
-    
+    console.log(card)
     //adding clickevent
-    card.div.addEventListener('click',(event)=>{
+ card.div.addEventListener('click',(event)=>{
         
         showCard(event,card.id)
-        console.log(card.id);
-        //for the card;
-        countMoves+=1;
-        //show all moves
-        displayText(moves,'Moves:'+countMoves);  
         //push objct id into array
         compareArray.push(card.id);
         //push div into array
@@ -85,7 +65,7 @@ for (let g = 0; g < allCards.length; g++) {
             if (compareArray[0] === compareArray[1] ){
                 console.log('yey')
                 //if correct you get a point
-                correct+=1;
+              
                 //both arrays gets empty so you can compare 2 new ones
                 compareArray =[];
                 wrongCards =[];  

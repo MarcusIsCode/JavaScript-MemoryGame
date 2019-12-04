@@ -1,6 +1,6 @@
 
-const displayText =(a,b)=>{
-    a.textContent = b ;
+const playerStats = (name,correct,moves) =>{
+
 }
 
 //shuffles array
