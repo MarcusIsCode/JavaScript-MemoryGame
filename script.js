@@ -1,15 +1,13 @@
    
 
-const moves = document.querySelector('.moves');
-const playerName = document.querySelector('.plyName');
+
 const container = document.querySelector('.container');
 
 //name variables for start up window
 
 
 
-let countMoves = 0;
-let correct = 0;
+
 
 let compareArray = [];
 let wrongCards = [];
@@ -49,7 +47,7 @@ for (let g = 0; g < allCards.length; g++) {
     
     // adding the divs to the container inside index.html
     container.appendChild(card.div);
-    console.log(card)
+    
     //adding clickevent
  card.div.addEventListener('click',(event)=>{
         
@@ -74,8 +72,7 @@ for (let g = 0; g < allCards.length; g++) {
                     console.log('you won')
                     wining();
                 }
-                
-               // console.log(correct);
+          
                 
                 //if wrongs
             } else if (compareArray[0] !== compareArray[1] && compareArray.length>1){

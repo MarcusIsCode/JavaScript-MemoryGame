@@ -5,6 +5,7 @@
     padding-bottom: 0px;
     height:99vh;
     width:20vw;
+    max-width:200px;
     color:white;
     background:var(--romanSilver)
 }
@@ -35,7 +36,7 @@
     font-family:var(--RacingSans);
 } 
 
-.name {
+.plyName {
  font-size: 23px;  
  width:100%;
  border-bottom:1px solid var(--romanSilver)
