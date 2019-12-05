@@ -63,7 +63,8 @@ body{
     height:150px;
     font-size: 14px;
     border-radius: 5px;
-    margin-left:3px;
+    margin-left:4px;
+    margin-top:4px
  }
  .show{
     background:var(--diamond);
