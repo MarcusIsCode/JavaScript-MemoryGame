@@ -1,10 +1,40 @@
-function player(name) {
+
+
+const allCardsfunc = () => {
+
+    for (let i = 0; i < 2; i++) {
+
+        const theCard = new cardsObjs(i, '');
+        const theCard2 = new cardsObjs(i, '');
+        cardsArray[i] = theCard;
+        cardsArray2[i] = theCard2;
+        allCards = cardsArray.concat(cardsArray2);
+        //shuffles the array (function.js)  
+        shuffleArray(allCards);
+
+    }
+
+    for (let c = 0; c < allCards.length; c++) {
+        // push the div into it's own array
+        divCards.push(allCards[c].div);
+        //use then push out the divs
+        container.appendChild(divCards[c]);
+        //this is done to use the same index when chosing card
+
+    }
+
+}
+
+
+function player(name, id = 0) {
+    this.id = id;
     this.name = name;
     this.moves = 0;
     this.level = 1
     this.correct = 0;
 }
-const playor = new player();
+let x = 1;
+const playor = new player("", x);
 
 const creatPlayerStats = () => {
     const boxStats = elFactory(
@@ -14,7 +44,6 @@ const creatPlayerStats = () => {
         elFactory('p', { class: 'moves' }), ""
     )
     statsContainer.appendChild(boxStats);
-
     const plyName = document.querySelector('.plyName');
     const level = document.querySelector('.level');
     const move = document.querySelector('.moves');
@@ -25,22 +54,26 @@ const creatPlayerStats = () => {
     move.textContent = 'Moves: ' + playor.moves;
 }
 
+
+let correct = playor.correct
+
 const funcCard= (event) => {
    
+        const move = document.querySelector('.moves'); 
+        //showing the value;
+        showCard(event)
+        //for geting thevalue of the cards 
+        let i = divCards.indexOf(event.target);
+        let cardValue = allCards[i].id;
         
         let click = event.target
-      
-        const move = document.querySelector('.moves'); 
-        
-     
-        showCard(event)
-
+        console.log(click)
         //push objct id into array
-        compareArray.push(click);
+        compareArray.push(cardValue);
         //push div into array
-        console.log(compareArray)
-      wrongCards.push(event.target)
-      console.log(click) 
+        wrongCards.push(click)
+     
+      
       move.textContent ='Moves: '+ (playor.moves +=1);
     
   
@@ -48,8 +81,7 @@ const funcCard= (event) => {
     if (compareArray[0] === compareArray[1]) {
         console.log('yey')
         //if correct you get a point
-        let correct = 1;
-        console.log(correct)
+        correct += 1;
         //both arrays gets empty so you can compare 2 new ones
         compareArray = [];
         wrongCards = [];
@@ -62,15 +94,15 @@ const funcCard= (event) => {
 
         //if wrongs
     } else if (compareArray[0] !== compareArray[1] && compareArray.length > 1) {
-
+            
         if (wrongCards.length > 2) {
             compareArray = [];
             hideCard(wrongCards, 'show')
             wrongCards = [];
 
-            showCard(event, card.id)
-            compareArray.push(card.id);
-            wrongCards.push(event.target)
+            showCard(event)
+            compareArray.push(cardValue);
+            wrongCards.push(click)
         }
     }
     

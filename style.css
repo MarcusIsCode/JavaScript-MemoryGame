@@ -69,7 +69,7 @@ body{
  .show{
     background:var(--diamond);
     z-index:-1;
-    color:black !important;
+    color:black;
  }
  h4{
      text-align: center;

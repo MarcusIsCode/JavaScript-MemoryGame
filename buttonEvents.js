@@ -5,9 +5,6 @@
 const statsContainer = document.querySelector('.statsContainer')
 
 
-
-//where all card are
-
 //name variables for start up window
 
 const container = document.querySelector('.container');
@@ -28,40 +25,11 @@ function cardsObjs(id, div) {
 }
 
 
-const x = 5;
-
-//creaing all the cards  with objects and putting them into a array 'allcards'
-const allCardsfunc = () => {
-    
-    for (let i = 0; i < x; i++) {
-
-        const theCard = new cardsObjs(i, '');
-        const theCard2 = new cardsObjs(i, '');
-        cardsArray[i] = theCard;
-        cardsArray2[i] = theCard2;
-        allCards = cardsArray.concat(cardsArray2);
-        //shuffles the array (function.js)  
-        shuffleArray(allCards);   
-        
-    }
-   
-    for (let c = 0; c < allCards.length; c++) {
-        divCards.push(allCards[c].div);
-        container.appendChild(divCards[c]);
-
-        //allCards[c].div.innerHTML = "<h4>" + allCards[c].id+"</h4>";
-        
-    }
-    console.log(divCards)
-    
-}
-
-
 const startBox = document.querySelector('.start');
 const input = document.querySelector('input');
 const startBtn = document.querySelector('.startBtn');
 startBtn.addEventListener('click', () => {
-    let newPlayer = new player(name)
+   
     creatPlayerStats(); 
     allCardsfunc();
     let divs = document.querySelectorAll('.level1')
@@ -72,3 +40,44 @@ startBtn.addEventListener('click', () => {
 
 const level = document.querySelector('.level');
 
+const buttonArray = []
+const retry = document.querySelector('.reset');
+const reset = document.querySelector('.retry');
+const nexLevel = document.querySelector('.NextLevel');
+const newPly = document.querySelector('.newP')
+buttonArray.push(retry, reset, nexLevel, newPly);
+
+for (let y = 0; y < buttonArray.length; y++) {
+
+
+    buttonArray[y].addEventListener('click', (event) => {
+        let click = event.target;
+        switch (click) {
+            case buttonArray[0]:
+                console.log('reset')
+                console.log(buttonArray[0])
+                allCards.forEach(element => {
+                    console.log(element);
+                });
+
+                break;
+            case buttonArray[1]:
+                console.log('retry')
+                console.log(buttonArray[1])
+                break;
+            case buttonArray[2]:
+                console.log('nextlevel')
+                console.log(buttonArray[2])
+                break;
+            case buttonArray[3]:
+                console.log('new player');
+                startBox.classList.remove('hideStart');
+                console.log(buttonArray[3])
+                break;
+            default:
+                console.log('somthing went wrong')
+        }
+
+
+    })
+}
