@@ -1,3 +1,86 @@
+function player(name) {
+    this.name = name;
+    this.moves = 0;
+    this.level = 1
+    this.correct = 0;
+}
+const playor = new player();
+
+const creatPlayerStats = () => {
+    const boxStats = elFactory(
+        'div', { class: 'boxStats' }, "",
+        elFactory('p', { class: 'plyName' }), "",
+        elFactory('p', { class: 'level' }), "",
+        elFactory('p', { class: 'moves' }), ""
+    )
+    statsContainer.appendChild(boxStats);
+
+    const plyName = document.querySelector('.plyName');
+    const level = document.querySelector('.level');
+    const move = document.querySelector('.moves');
+
+    playor.name = input.value;
+    plyName.textContent = playor.name
+    level.textContent = 'Level: ' + playor.level;
+    move.textContent = 'Moves: ' + playor.moves;
+}
+
+const funcCard= (event) => {
+   
+        
+        let click = event.target
+      
+        const move = document.querySelector('.moves'); 
+        
+     
+        showCard(event)
+
+        //push objct id into array
+        compareArray.push(click);
+        //push div into array
+        console.log(compareArray)
+      wrongCards.push(event.target)
+      console.log(click) 
+      move.textContent ='Moves: '+ (playor.moves +=1);
+    
+  
+    //if won
+    if (compareArray[0] === compareArray[1]) {
+        console.log('yey')
+        //if correct you get a point
+        let correct = 1;
+        console.log(correct)
+        //both arrays gets empty so you can compare 2 new ones
+        compareArray = [];
+        wrongCards = [];
+        //wining
+        if (correct === cardsArray.length) {
+            console.log('you won')
+            wining();
+        }
+
+
+        //if wrongs
+    } else if (compareArray[0] !== compareArray[1] && compareArray.length > 1) {
+
+        if (wrongCards.length > 2) {
+            compareArray = [];
+            hideCard(wrongCards, 'show')
+            wrongCards = [];
+
+            showCard(event, card.id)
+            compareArray.push(card.id);
+            wrongCards.push(event.target)
+        }
+    }
+    
+
+}
+
+
+
+
+
 //creating elements 
 const elFactory = (type, attributes, ...children) => {
     const el = document.createElement(type)
@@ -42,15 +125,19 @@ const hideCard =(array,b) =>{
     }        
 }
 
-const showCard =(event,id)=>{
+const showCard =(event)=>{
+
+   let i = divCards.indexOf(event.target)
     event.target.classList.add('show')
-   return event.target.innerHTML = `<h4>${id}</h4>`
+   
+    return event.target.innerHTML = `<h4>${allCards[i].id}</h4>`
 }
 
 const wining =() =>{
+    console.log(allCards)
     const popUpp = document.querySelector('.popup')
     popUpp.classList.add('showPopup')
     console.log(popUpp)
 }
 
-//add a placeholder for clickevent to hide it behind when clicked
+
