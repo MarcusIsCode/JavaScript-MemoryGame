@@ -26,7 +26,7 @@ function cardsObjs(id, div) {
 //creat new player and resets stats
 const startBox = document.querySelector('.start');
 const startBtn = document.querySelector('.startBtn');
-let deck = 8;L
+let deck = 8;
 let levelNum = 1
 
 startBtn.addEventListener('click', (event) => {    
