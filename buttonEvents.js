@@ -1,7 +1,5 @@
 
 
-
-
 const statsContainer = document.querySelector('.statsContainer')
 
 
@@ -26,19 +24,20 @@ function cardsObjs(id, div) {
 
 
 const startBox = document.querySelector('.start');
-const input = document.querySelector('input');
+//creat new player and resets stats
 const startBtn = document.querySelector('.startBtn');
-startBtn.addEventListener('click', () => {
-   
-    creatPlayerStats(); 
-    allCardsfunc();
-    let divs = document.querySelectorAll('.level1')
+let deck = 4;
+let levelNum = 1
 
+startBtn.addEventListener('click', (event) => {    
+    creatPlayerStats(event); 
+    allCardsfunc(deck);
     startBox.classList.add('hideStart');
+
+
 }) 
 
 
-const level = document.querySelector('.level');
 
 const buttonArray = []
 const retry = document.querySelector('.reset');
@@ -47,32 +46,29 @@ const nexLevel = document.querySelector('.NextLevel');
 const newPly = document.querySelector('.newP')
 buttonArray.push(retry, reset, nexLevel, newPly);
 
+
+
+
 for (let y = 0; y < buttonArray.length; y++) {
-
-
+    
     buttonArray[y].addEventListener('click', (event) => {
         let click = event.target;
         switch (click) {
-            case buttonArray[0]:
-                console.log('reset')
-                console.log(buttonArray[0])
-                allCards.forEach(element => {
-                    console.log(element);
-                });
-
+            case buttonArray[0]://reset     
+                resetStats()
                 break;
-            case buttonArray[1]:
-                console.log('retry')
-                console.log(buttonArray[1])
+            case buttonArray[1]://retry
+                resetStats()
                 break;
-            case buttonArray[2]:
-                console.log('nextlevel')
-                console.log(buttonArray[2])
+            case buttonArray[2]://next Level
+                newLevel(deck,levelNum )
                 break;
-            case buttonArray[3]:
-                console.log('new player');
+                case buttonArray[3]://new player btn
+                deck = 4;
                 startBox.classList.remove('hideStart');
-                console.log(buttonArray[3])
+                resetCardContainer();
+                allCardsfunc(deck);
+                console.log(event.target)
                 break;
             default:
                 console.log('somthing went wrong')
