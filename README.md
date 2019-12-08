@@ -6,7 +6,7 @@
 ## Asignment
 Make a memory game with only hmtl,css and JavaSrcipt
 
-## Insaling
+## Instalment
 * Enter this webbsite [https://memoryiscode.netlify.com/](https://memoryiscode.netlify.com/)
 * Or download the rapsotory and open in the index.html file in your browser
 
@@ -14,5 +14,5 @@ Make a memory game with only hmtl,css and JavaSrcipt
 
 ## Codereview by:
 
-###Licence 
+### Licence 
 MIT-license
