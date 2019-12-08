@@ -2,7 +2,7 @@
     font-family: var(--RacingSans);
     
      position: fixed;
-     width:400px;
+     width:350px;
      height:200px;
      background:var(--romanSilver);
      left: -50%;
@@ -40,8 +40,9 @@
     color:white;
     font-family: var(--RacingSans);
      position: fixed;
-     width:400px;
-     height:200px;
+     width:350px;
+     min-height:200px;
+     height: auto;
      background:var(--romanSilver);
      left: 50%;
      transform: translateX(-50%);
@@ -60,6 +61,7 @@
 
 .start h2{
     font-weight: lighter;
+    text-align: center;
 }
 form{
     display: flex;

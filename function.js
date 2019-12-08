@@ -86,11 +86,11 @@ const creatPlayerStats = () => {
 //checking if card is correct
 let correct = 0;
 let moves = 0;
+const newPlayerBox = document.querySelector('.newPlayerText')
+
 const funcCard= (event) => {
     moves+=1;
     document.querySelector('.moves').innerHTML ="Moves: "+ moves;
-
-    console.log(moves)
         //showing the value;
         showCard(event)
         //for geting thevalue of the cards 
@@ -106,22 +106,27 @@ const funcCard= (event) => {
     
   
     //if won
+    console.log(levelNum)
     if (compareArray[0] === compareArray[1]) {
-        console.log('yey')
         //if correct you get a point
         correct += 1;
-        console.log(correct)
+   
         //both arrays gets empty so you can compare 2 new ones
         compareArray = [];
         wrongCards = [];
         //wining
-        if (correct === cardsArray.length) {
-            console.log('you won')
+        if (correct === cardsArray.length && levelNum  < 3 ) {
             correct = 0;
             wining();
+        } else if (correct === cardsArray.length && levelNum === 3){
+            startBox.classList.remove('hideStart');
+            newPlayerBox.innerHTML = `Congratilasion you Won!,<br> your score is: ${moves} <br>Next player write your name!`;
+            levelNum = 0;
+            deck = 0;
         }
+        
 
-
+     
         //if wrongs
     } else if (compareArray[0] !== compareArray[1] && compareArray.length > 1) {
             
@@ -190,8 +195,7 @@ const resetCardContainer =()=>{
 
  const resetStats =()=>{
      resetCardContainer();
-     console.log (allCards)
-     allCardsfunc(1)
+     allCardsfunc(1)//! neeed to change
      hideCard(divCards, 'show')
      shuffleArray(allCards);
      popUpp.classList.remove('showPopup')
@@ -200,12 +204,20 @@ const resetCardContainer =()=>{
      document.querySelector('.moves').innerHTML = "Moves: " + 0;
      document.querySelector('.level').innerHTML = "Level: " + 1;
  }
- const newLevel = (deck, levelNum)=>{
-    deck += 2;
-    levelNum++;
+ 
+ const newLevel = ()=>{
+    deck += 1; //!need to change
+    levelNum+=1;
+    console.log(levelNum)
     document.querySelector('.level').innerHTML = "Level: " + levelNum;
     container.innerHTML = "",
+    resetCardContainer();
     allCardsfunc(deck);
     hideCard(divCards, 'show')
     popUpp.classList.remove('showPopup')
- }
+   
+    if(levelNum === 2){
+        container.classList.remove('gridOne')
+        container.classList.add('gridTwo')
+    }
+}

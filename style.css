@@ -42,16 +42,22 @@ body{
     background:none;
     padding:0;
     position: absolute;
-    right:100px;
-    top:50px;
+    right:40px;
+    top:30px;
     display:grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    
     background:none;
     border:3px solid white;
     padding:20px;
     border-radius:10px;
 }
+.gridOne{
+grid-template-columns: auto auto auto auto;
+}
+.gridTwo{
+grid-template-columns: auto auto auto auto auto auto auto auto;
 
+}
  .level1{
      position: relative;
     background:var(--sapphire);
@@ -59,13 +65,14 @@ body{
     padding: 0;
     border:1.5px solid #D6D1CE;
     font-size: 40px;
-    width:125px;
-    height:150px;
+    width:105px;
+    height:120px;
     font-size: 14px;
     border-radius: 5px;
     margin-left:4px;
     margin-top:4px
  }
+
  .show{
     background:var(--diamond);
     z-index:-1;

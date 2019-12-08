@@ -23,18 +23,23 @@ function cardsObjs(id, div) {
 }
 
 
-const startBox = document.querySelector('.start');
 //creat new player and resets stats
+const startBox = document.querySelector('.start');
 const startBtn = document.querySelector('.startBtn');
-let deck = 4;
+let deck = 1;// ---shuld change
 let levelNum = 1
 
 startBtn.addEventListener('click', (event) => {    
+    if(levelNum ===3){
+        deck =1 //! need to change this
+        levelNum = 1;
+    }
+    resetCardContainer();
+    allCardsfunc(deck);
+
     creatPlayerStats(event); 
     allCardsfunc(deck);
     startBox.classList.add('hideStart');
-
-
 }) 
 
 
@@ -61,14 +66,12 @@ for (let y = 0; y < buttonArray.length; y++) {
                 resetStats()
                 break;
             case buttonArray[2]://next Level
-                newLevel(deck,levelNum )
+                newLevel()
                 break;
                 case buttonArray[3]://new player btn
-                deck = 4;
+                deck = 1; //! need to change 
                 startBox.classList.remove('hideStart');
-                resetCardContainer();
-                allCardsfunc(deck);
-                console.log(event.target)
+                newPlayerBox.innerHTML = "Write your name player"
                 break;
             default:
                 console.log('somthing went wrong')
