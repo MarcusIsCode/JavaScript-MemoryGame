@@ -40,6 +40,8 @@ startBtn.addEventListener('click', (event) => {
     creatPlayerStats(event); 
     allCardsfunc(deck);
     startBox.classList.add('hideStart');
+    container.classList.add('gridOne')
+    container.classList.remove('gridtwo')
 }) 
 
 
