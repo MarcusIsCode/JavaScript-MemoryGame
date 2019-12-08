@@ -195,7 +195,7 @@ const resetCardContainer =()=>{
 
  const resetStats =()=>{
      resetCardContainer();
-     allCardsfunc(1)//! neeed to change
+     allCardsfunc(8)
      hideCard(divCards, 'show')
      shuffleArray(allCards);
      popUpp.classList.remove('showPopup')
@@ -206,7 +206,7 @@ const resetCardContainer =()=>{
  }
  
  const newLevel = ()=>{
-    deck += 1; //!need to change
+    deck += 8; 
     levelNum+=1;
     console.log(levelNum)
     document.querySelector('.level').innerHTML = "Level: " + levelNum;
