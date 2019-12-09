@@ -1,6 +1,5 @@
   .popup{
     font-family: var(--RacingSans);
-    
      position: fixed;
      width:350px;
      min-height:150px;
@@ -14,6 +13,7 @@
  }
  .showPopup{
      left: 50%;
+   
  }
  .message{
      width: 95%;
@@ -31,12 +31,13 @@
      font-size:30px;
      font-weight:lighter;
  }
-.h2Span{
-    font-size:33px;
-    font-weight: lighter;
-    text-decoration: underline;
+.popup .btnBox{
+   
+    justify-content: space-between;
 }
-
+.popup .btn{
+    width:150px;
+}
 .start{
     color:white;
     font-family: var(--RacingSans);
@@ -47,7 +48,7 @@
      background:var(--romanSilver);
      left: 50%;
      transform: translateX(-50%);
-     top:100px;
+     top:10px;
      z-index:2;
      border-radius: 10px 10px;
      display: flex;
@@ -57,7 +58,7 @@
     /* display: none;
  */    }
 .hideStart{
-    left:-200%
+    display:none;
 }
 
 .start h2{

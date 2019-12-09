@@ -1,5 +1,5 @@
 
-
+//**function for geting cards */
 const allCardsfunc = (numberOfCards) => {
 
     for (let i = 0; i < numberOfCards; i++) {
@@ -24,7 +24,7 @@ const allCardsfunc = (numberOfCards) => {
     }
 
 }
-//creaing the stats box moves etc
+//creaing the stats for the player box moves etc
 const elFactory = (type, attributes, ...children) => {
     const el = document.createElement(type)
 
@@ -58,10 +58,7 @@ function player(id,name,mov,level) {
 }
 
 let playStats = new player(1,input.value, 0, 1);
-
 let playerArray = [];
-
-
 const creatPlayerStats = () => {
     
     let arrLength = playerArray.length
@@ -96,17 +93,14 @@ const funcCard= (event) => {
         //for geting thevalue of the cards 
         let i = divCards.indexOf(event.target);
         let cardValue = allCards[i].id;
-        
         let click = event.target
-    
         //push objct id into array
         compareArray.push(cardValue);
         //push div into array
         wrongCards.push(click)
     
   
-    //if won
-    console.log(levelNum)
+    //if wining
     if (compareArray[0] === compareArray[1]) {
         //if correct you get a point
         correct += 1;
@@ -124,8 +118,6 @@ const funcCard= (event) => {
             levelNum = 0;
             deck = 0;
         }
-        
-
      
         //if wrongs
     } else if (compareArray[0] !== compareArray[1] && compareArray.length > 1) {
@@ -208,7 +200,6 @@ const resetCardContainer =()=>{
  const newLevel = ()=>{
     deck += 8; 
     levelNum+=1;
-    console.log(levelNum)
     document.querySelector('.level').innerHTML = "Level: " + levelNum;
     container.innerHTML = "",
     resetCardContainer();
@@ -216,8 +207,11 @@ const resetCardContainer =()=>{
     hideCard(divCards, 'show')
     popUpp.classList.remove('showPopup')
    
-    if(levelNum === 2){
+    if(levelNum > 2){
         container.classList.remove('gridOne')
         container.classList.add('gridTwo')
+    }else{
+        container.classList.add('gridOne')
+        container.classList.remove('gridTwo')
     }
 }
