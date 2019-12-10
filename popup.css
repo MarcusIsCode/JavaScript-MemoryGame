@@ -1,12 +1,12 @@
   .popup{
     font-family: var(--RacingSans);
      position: fixed;
-     width:350px;
-     min-height:150px;
-     height: auto;
+     width:350;
+    height: 150px;
+
      background:var(--romanSilver);
      left: -50%;
-     transform: translateX(-50%);
+     transform: translateX(-50%) scale(1.9);;
      top:100px;
      z-index:2;
      border-radius: 10px 10px;
@@ -14,7 +14,6 @@
  }
  .showPopup{
      left: 50%;
-   
  }
  .message{
      width: 95%;
@@ -33,7 +32,6 @@
      font-weight:lighter;
  }
 .popup .btnBox{
-   
     justify-content: space-between;
 }
 .popup .btn{

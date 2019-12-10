@@ -136,7 +136,7 @@ grid-auto-rows:1fr;
  border-bottom:1px solid var(--romanSilver)
 }
 
-@media only screen and (min-width: 1075px) {
+@media only screen and (min-width: 1023px) {
   main {
     flex-direction: row;
     width: 100%;
@@ -154,6 +154,9 @@ grid-auto-rows:1fr;
     width: 40vh;
     margin-left:80px;
   }
+.start{
+    width:70vw;
+}
 
 }
 
