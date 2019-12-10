@@ -210,7 +210,7 @@ const resetCardContainer =()=>{
     if(levelNum > 2){
         container.classList.remove('gridOne')
         container.classList.add('gridTwo')
-    }else{
+    }else if(levelNum < 2){
         container.classList.add('gridOne')
         container.classList.remove('gridTwo')
     }

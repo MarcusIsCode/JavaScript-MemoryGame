@@ -10,6 +10,7 @@
      top:100px;
      z-index:2;
      border-radius: 10px 10px;
+     padding:5px;
  }
  .showPopup{
      left: 50%;
@@ -54,6 +55,7 @@
      display: flex;
      flex-direction: column;
      align-items: center;
+     padding:3px;
      box-shadow: 0px 0px 1220px 1149px rgba(0,0,0,0.75);     
     /* display: none;
  */    }
