@@ -5,8 +5,8 @@
     height: 150px;
 
      background:var(--romanSilver);
-     left: -50%;
-     transform: translateX(-50%) scale(1.9);;
+     left: -80%;
+     transform: translateX(-50%);
      top:100px;
      z-index:2;
      border-radius: 10px 10px;
@@ -14,6 +14,7 @@
  }
  .showPopup{
      left: 50%;
+     
  }
  .message{
      width: 95%;
